@@ -20,9 +20,9 @@ $(PROGNAME): $(PROGNAME).c common.h common.c debug.h debug.c
 	$(CC) $(PROGNAME).c common.c debug.c -o $(PROGNAME) $(CFLAGS) $(LDFLAGS)
 
 install: all
-	$(INSTALL) $(PROGNAME) /usr/bin
+	$(INSTALL) $(PROGNAME) $(DESTDIR)/usr/bin
 ifeq ($(UNAME), Linux)
-	$(INSTALLDATA) 19-footswitch.rules /etc/udev/rules.d
+	$(INSTALLDATA) 19-footswitch.rules $(DESTDIR)/etc/udev/rules.d
 endif
 
 clean:
